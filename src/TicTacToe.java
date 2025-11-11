@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.time.*;
 
 public class TicTacToe extends JFrame {
     public static final int WIDTH = 450;
@@ -8,11 +9,13 @@ public class TicTacToe extends JFrame {
     public static final int GAME_PANEL_HEIGHT = HEIGHT - 2 * SCORE_PANEL_HEIGHT;
 
     public static int currentTurn = 1;
+
     private static final FieldButton[] buttons = {
             new FieldButton(), new FieldButton(), new FieldButton(),
             new FieldButton(), new FieldButton(), new FieldButton(),
             new FieldButton(), new FieldButton(), new FieldButton()
     };
+    private static final TimerLabel timerLabel = new TimerLabel();
 
     public TicTacToe () {
         this.setTitle("TicTacToe");
@@ -28,6 +31,8 @@ public class TicTacToe extends JFrame {
         JPanel scorePanel = new JPanel();
         scorePanel.setBackground(new Color(200, 200, 200));
         scorePanel.setSize(WIDTH, SCORE_PANEL_HEIGHT);
+        scorePanel.setLayout(null);
+        scorePanel.add(timerLabel);
 
         JPanel gamePanel = new JPanel();
         gamePanel.setLayout(new GridLayout(3, 3));
@@ -54,6 +59,14 @@ public class TicTacToe extends JFrame {
         if (buttons[0].state != 0 && buttons[0].state == buttons[4].state && buttons[0].state == buttons[8].state) win = buttons[0].state;
         if (buttons[2].state != 0 && buttons[2].state == buttons[4].state && buttons[2].state == buttons[6].state) win = buttons[2].state;
 
+        boolean draw = true;
+        for (FieldButton button : buttons)
+            if (button.state == 0) {
+                draw = false;
+                break;
+            }
+        if (draw) return -1;
+
         return win;
     }
 
@@ -65,6 +78,14 @@ public class TicTacToe extends JFrame {
         victoryFrame.setVisible(true);
     }
 
+    public static void handleDraw() {
+        for (FieldButton button : buttons) button.setEnabled(false);
+
+        DrawFrame drawFrame = new DrawFrame();
+
+        drawFrame.setVisible(true);
+    }
+
     public static void playAgain() {
         for (FieldButton button : buttons) {
             button.setEnabled(true);
@@ -72,7 +93,17 @@ public class TicTacToe extends JFrame {
             button.state = 0;
             button.isOccupied = false;
         }
+    }
 
+    public static void resetTimer() {
+        timerLabel.reset();
+
+        String seconds = String.format("%03d", 0);
+        timerLabel.setText(seconds);
+    }
+
+    public static Timer getTimer() {
+        return timerLabel.getTimer();
     }
 
     public void main(String[] args) {

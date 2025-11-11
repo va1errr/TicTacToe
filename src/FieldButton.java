@@ -25,9 +25,12 @@ public class FieldButton extends JButton implements ActionListener {
             isOccupied = true;
 
             int win = TicTacToe.handleTurn();
-            if (win != 0){
-                System.out.println(win + " wins!");
-                TicTacToe.handleVictory();
+            if (win > 0) TicTacToe.handleVictory();
+            else if (win == -1) TicTacToe.handleDraw();
+
+            if (win != 0) {
+                Timer timer = TicTacToe.getTimer();
+                timer.stop();
             }
         }
     }
