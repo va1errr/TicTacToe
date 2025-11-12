@@ -6,8 +6,11 @@ import labels.ScoreLabel;
 import labels.TimerLabel;
 import frames.VictoryFrame;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class TicTacToe extends JFrame {
     public static final int WIDTH = 450;
@@ -26,12 +29,20 @@ public class TicTacToe extends JFrame {
     public static final ScoreLabel scoreLabel = new ScoreLabel();
 
     public TicTacToe () {
-        this.setTitle("main.TicTacToe");
+        this.setTitle("TicTacToe");
         this.setSize(WIDTH, HEIGHT);
         this.setResizable(false);
         this.setBackground(new Color(0, 0, 255));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+
+        try {
+            ImageIcon icon = new ImageIcon(ImageIO.read(new File("./src/images/icon.png")).getScaledInstance(128, 128, Image.SCALE_SMOOTH));
+            this.setIconImage(icon.getImage());
+        }
+        catch (IOException _) {
+            System.out.println("No app icon found!");
+        }
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(null);
