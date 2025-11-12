@@ -1,3 +1,7 @@
+package labels;
+
+import main.TicTacToe;
+
 import javax.swing.*;
 import java.awt.*;
 

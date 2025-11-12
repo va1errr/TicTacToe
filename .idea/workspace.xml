@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2f3d9c6-658a-49cf-a97d-8565e2dd1eb9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ScoreLabel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FieldButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FieldButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicTacToe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrawFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frames/DrawFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FieldButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buttons/FieldButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScoreLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labels/ScoreLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/TicTacToe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimerLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labels/TimerLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VictoryFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frames/VictoryFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,6 +1,13 @@
+package main;
+
+import buttons.FieldButton;
+import frames.DrawFrame;
+import labels.ScoreLabel;
+import labels.TimerLabel;
+import frames.VictoryFrame;
+
 import javax.swing.*;
 import java.awt.*;
-import java.time.*;
 
 public class TicTacToe extends JFrame {
     public static final int WIDTH = 450;
@@ -16,10 +23,10 @@ public class TicTacToe extends JFrame {
             new FieldButton(), new FieldButton(), new FieldButton()
     };
     private static final TimerLabel timerLabel = new TimerLabel();
-    protected static final ScoreLabel scoreLabel = new ScoreLabel();
+    public static final ScoreLabel scoreLabel = new ScoreLabel();
 
     public TicTacToe () {
-        this.setTitle("TicTacToe");
+        this.setTitle("main.TicTacToe");
         this.setSize(WIDTH, HEIGHT);
         this.setResizable(false);
         this.setBackground(new Color(0, 0, 255));

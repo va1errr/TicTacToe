@@ -1,6 +1,9 @@
+package buttons;
+
+import main.TicTacToe;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class FieldButton extends JButton implements ActionListener{
-    boolean isOccupied = false;
+    public boolean isOccupied = false;
 
     public int state = 0;
 
