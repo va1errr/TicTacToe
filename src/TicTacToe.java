@@ -16,6 +16,7 @@ public class TicTacToe extends JFrame {
             new FieldButton(), new FieldButton(), new FieldButton()
     };
     private static final TimerLabel timerLabel = new TimerLabel();
+    protected static final ScoreLabel scoreLabel = new ScoreLabel();
 
     public TicTacToe () {
         this.setTitle("TicTacToe");
@@ -33,6 +34,7 @@ public class TicTacToe extends JFrame {
         scorePanel.setSize(WIDTH, SCORE_PANEL_HEIGHT);
         scorePanel.setLayout(null);
         scorePanel.add(timerLabel);
+        scorePanel.add(scoreLabel);
 
         JPanel gamePanel = new JPanel();
         gamePanel.setLayout(new GridLayout(3, 3));
@@ -65,7 +67,7 @@ public class TicTacToe extends JFrame {
                 draw = false;
                 break;
             }
-        if (draw) return -1;
+        if (draw && win == 0) return -1;
 
         return win;
     }
@@ -76,6 +78,7 @@ public class TicTacToe extends JFrame {
         VictoryFrame victoryFrame = new VictoryFrame();
 
         victoryFrame.setVisible(true);
+        victoryFrame.setAlwaysOnTop(true);
     }
 
     public static void handleDraw() {
@@ -84,12 +87,13 @@ public class TicTacToe extends JFrame {
         DrawFrame drawFrame = new DrawFrame();
 
         drawFrame.setVisible(true);
+        drawFrame.setAlwaysOnTop(true);
     }
 
     public static void playAgain() {
         for (FieldButton button : buttons) {
             button.setEnabled(true);
-            button.setText("");
+            button.setIcon(null);
             button.state = 0;
             button.isOccupied = false;
         }
